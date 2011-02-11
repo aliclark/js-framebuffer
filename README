@@ -1,0 +1,8 @@
+
+This project emulates a framebuffer in Javascript.
+
+Could be useful if you intend to develop/test framebuffer output code in a high level language that cannot yet compile to native code but which can or will soon be able to compile to Javascript.
+
+Or if you're just into this sort of thing...
+
+Please see test.html for an example

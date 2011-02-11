@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>js-framebuffer</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="framebuffer.js"></script>
+    <script type="text/javascript">
+
+(function ()
+{
+    'use strict';
+
+    var outb = framebuffer.outb;
+    var setb = memory.setb;
+    var getb = memory.getb;
+
+    window.onload = function ()
+    {
+        var cursorLocation, hi, lo;
+
+        framebuffer.init();
+
+        setb(0xb8000, 72);
+        setb(0xb8001, 0x02);
+
+        setb(0xb8002, 101);
+        setb(0xb8003, 0x02);
+
+        setb(0xb8004, 108);
+        setb(0xb8005, 0x02);
+
+        setb(0xb8006, 108);
+        setb(0xb8007, 0x02);
+
+        setb(0xb8008, 111);
+        setb(0xb8009, 0x02);
+
+        setb(0xb800a, 44);
+        setb(0xb800b, 0x02);
+
+        setb(0xb800c, 32);
+        setb(0xb800d, 0x02);
+
+        setb(0xb800e, 87);
+        setb(0xb800f, 0x02);
+
+        setb(0xb8010, 111);
+        setb(0xb8011, 0x02);
+
+        setb(0xb8012, 114);
+        setb(0xb8013, 0x02);
+
+        setb(0xb8014, 108);
+        setb(0xb8015, 0x02);
+
+        setb(0xb8016, 100);
+        setb(0xb8017, 0x02);
+
+        setb(0xb8018, 33);
+        setb(0xb8019, 0x02);
+
+        cursorLocation = (0 * 80) + 13;
+        hi = cursorLocation >> 8;
+        lo = cursorLocation & 255;
+        outb(0x3D4, 14);
+        outb(0x3D5, hi);
+        outb(0x3D4, 15);
+        outb(0x3D5, lo);
+    };
+}());
+
+    </script>
+  </body>
+</html>
